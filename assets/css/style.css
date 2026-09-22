@@ -763,3 +763,56 @@ footer span{color:#a8b9be}
     font-size:9px;
   }
 }
+
+
+/* کنترل قطعی منوی افقی موبایل: نوار خودش اسکرول می‌شود و آیتم‌ها هرگز فشرده نمی‌شوند */
+@media(max-width:900px){
+  .page-menu{overflow:hidden}
+  .page-menu nav.home-page-nav{
+    display:flex!important;
+    flex-direction:row!important;
+    flex-wrap:nowrap!important;
+    justify-content:flex-start!important;
+    align-items:center!important;
+    width:100%!important;
+    max-width:none!important;
+    min-width:0!important;
+    overflow-x:auto!important;
+    overflow-y:hidden!important;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
+    touch-action:pan-x;
+    scrollbar-width:none;
+    padding:2px 5px!important;
+    gap:4px!important;
+  }
+  .page-menu nav.home-page-nav::-webkit-scrollbar{display:none;height:0}
+  .page-menu nav.home-page-nav>a,
+  .page-menu nav.home-page-nav>.menu-group{
+    flex:0 0 auto!important;
+    width:auto!important;
+    min-width:max-content!important;
+    max-width:none!important;
+  }
+  .page-menu nav.home-page-nav>a,
+  .page-menu nav.home-page-nav>.menu-group>summary{
+    width:auto!important;
+    min-width:max-content!important;
+    white-space:nowrap!important;
+    overflow:visible!important;
+    text-overflow:clip!important;
+    font-size:10px!important;
+    padding:5px 10px!important;
+  }
+  .page-menu.is-scrolled nav.home-page-nav>a,
+  .page-menu.is-scrolled nav.home-page-nav>.menu-group>summary{
+    font-size:9.5px!important;
+    padding:4px 9px!important;
+  }
+}
+@media(max-width:390px){
+  .page-menu nav.home-page-nav>a,
+  .page-menu nav.home-page-nav>.menu-group>summary{font-size:9.5px!important;padding:5px 9px!important}
+  .page-menu.is-scrolled nav.home-page-nav>a,
+  .page-menu.is-scrolled nav.home-page-nav>.menu-group>summary{font-size:9px!important;padding:4px 8px!important}
+}
