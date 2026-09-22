@@ -343,3 +343,7 @@ section::before{content:"";position:absolute;inset:24px 4% auto 4%;height:1px;ba
 .hero .meta-grid{position:relative;z-index:3}
 .hero .eyebrow{letter-spacing:.1px}
 @media(max-width:700px){.hero::before{width:360px;height:360px;right:-180px;top:-150px}.hero::after{right:-8%;width:390px;height:135px;bottom:-52px}.hero{background:radial-gradient(380px 260px at 86% 12%,rgba(8,127,116,.13),transparent 70%),linear-gradient(145deg,rgba(255,255,255,.96),rgba(240,247,245,.93))}}
+
+/* توازن اطلاعات هویتی باقی‌مانده در هدر */
+.meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:560px){.meta-grid{grid-template-columns:1fr}}
