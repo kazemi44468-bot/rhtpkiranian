@@ -288,3 +288,45 @@
 
 /* پس‌زمینه یکپارچه نهایی */
 html{background:#f3f7f7}body{background:radial-gradient(circle at 12% 8%,rgba(8,127,116,.07),transparent 28%),radial-gradient(circle at 88% 18%,rgba(201,155,61,.075),transparent 24%),linear-gradient(135deg,#f8fbfb 0%,#eef4f3 52%,#f5f8f7 100%);background-attachment:fixed;position:relative;overflow-x:hidden}body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background-image:linear-gradient(rgba(8,127,116,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(8,127,116,.035) 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent 78%)}body::after{content:"";position:fixed;width:420px;height:420px;left:-170px;bottom:-190px;border:1px solid rgba(8,127,116,.08);border-radius:50%;box-shadow:0 0 0 38px rgba(8,127,116,.025),0 0 0 78px rgba(201,155,61,.018);pointer-events:none;z-index:-1}.hero,.section,.form-panel,.status-panel,.ops-card,.admin-side-card,.admin-module,.admin-table-wrap,.admin-kpi,.metric{backdrop-filter:blur(7px)}.hero{background:rgba(255,255,255,.76)}.section,.form-panel,.status-panel,.ops-card,.admin-side-card,.admin-module,.admin-table-wrap,.admin-kpi,.metric{background:rgba(255,255,255,.88)}
+
+/* لایه بصری یکپارچه و پایدار پس‌زمینه */
+html{min-height:100%;background:#edf4f3}
+body{min-height:100vh;background:
+radial-gradient(900px 500px at 8% 0%,rgba(8,127,116,.11),transparent 62%),
+radial-gradient(760px 460px at 94% 7%,rgba(201,155,61,.10),transparent 60%),
+linear-gradient(145deg,#f8fbfb 0%,#eef5f4 48%,#f6f9f8 100%);isolation:isolate}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:
+linear-gradient(rgba(8,127,116,.028) 1px,transparent 1px),
+linear-gradient(90deg,rgba(8,127,116,.028) 1px,transparent 1px);
+background-size:42px 42px;
+mask-image:linear-gradient(to bottom,rgba(0,0,0,.92),rgba(0,0,0,.25) 72%,transparent 100%)}
+body::after{content:"";position:fixed;z-index:0;pointer-events:none;width:520px;height:520px;left:-230px;bottom:-250px;border:1px solid rgba(8,127,116,.09);border-radius:50%;box-shadow:0 0 0 42px rgba(8,127,116,.025),0 0 0 86px rgba(201,155,61,.018),0 0 0 132px rgba(8,127,116,.012)}
+body>*{position:relative;z-index:1}
+.sidebar,.top{z-index:60}
+.page-menu{z-index:35}
+.hero{background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(241,248,247,.78));border-bottom:1px solid rgba(210,224,222,.6)}
+section{position:relative;isolation:isolate}
+section::before{content:"";position:absolute;inset:24px 4% auto 4%;height:1px;background:linear-gradient(90deg,transparent,rgba(8,127,116,.08),transparent);pointer-events:none}
+.cards article,.pillar,.architecture div,.matrix div,.timeline article,.revenue-grid div,.list-panel,.two-col>div,.project-grid article,.ops-card,.form-panel,.status-panel,.admin-side-card,.admin-module,.admin-kpi,.metric,.admin-table-wrap{min-width:0;overflow:hidden}
+.cards article,.pillar,.architecture div,.matrix div,.timeline article,.revenue-grid div,.list-panel,.two-col>div,.project-grid article,.ops-card,.form-panel,.status-panel,.admin-side-card,.admin-module,.admin-kpi,.metric{overflow-wrap:anywhere}
+.project-grid,.cards,.pillar-grid,.architecture,.matrix,.timeline,.revenue-grid,.two-col,.ops-grid,.ops-hero-grid,.admin-overview,.admin-sections,.admin-kpis,.ops-summary,.quick-actions{align-items:stretch}
+.admin-table-wrap{overflow-x:auto;overflow-y:hidden}
+.admin-table{table-layout:auto}
+.form-grid>*{min-width:0}
+.form-field input,.form-field select,.form-field textarea{max-width:100%;min-width:0}
+.page-menu,.page-menu nav,.home-page-nav{min-width:0}
+.page-menu nav{scrollbar-gutter:stable}
+@media(max-width:1050px){
+  section{padding-left:clamp(20px,5vw,55px);padding-right:clamp(20px,5vw,55px)}
+  .hero{padding-left:clamp(22px,5vw,70px);padding-right:clamp(22px,5vw,70px)}
+}
+@media(max-width:700px){
+  .page-menu{min-height:54px}
+  .page-menu nav{justify-content:flex-start}
+  section{padding-left:16px;padding-right:16px}
+  .hero{padding-left:18px;padding-right:18px}
+  .section-head{align-items:flex-start}
+  .section-head h2{min-width:0;overflow-wrap:anywhere}
+  .two-col>div{padding:18px}
+  .ops-card,.form-panel,.status-panel,.admin-side-card,.admin-module{padding:16px}
+}
