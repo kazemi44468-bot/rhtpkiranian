@@ -158,3 +158,111 @@
     left:10px;
   }
 }
+
+/* یکپارچه‌سازی نهایی منوی بالای تمام صفحات */
+.page-menu .home-page-nav{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  max-width:calc(100% - 180px);
+  overflow:visible;
+  padding:2px 4px;
+  border:1px solid rgba(196,211,212,.72);
+  border-radius:10px;
+  background:rgba(255,255,255,.68);
+  box-shadow:0 3px 12px rgba(18,37,46,.04);
+}
+.home-page-nav>a,
+.home-page-nav .menu-group{
+  position:relative;
+  border:1px solid transparent;
+  border-radius:8px;
+}
+.home-page-nav>a{
+  display:block;
+  padding:4px 9px;
+  color:#52656c;
+  font-size:10.5px;
+  font-weight:500;
+  line-height:1.6;
+}
+.home-page-nav>a:hover,
+.home-page-nav>a.active{
+  background:#fff;
+  color:var(--accent);
+  border-color:#dce8e7;
+  box-shadow:0 2px 8px rgba(18,37,46,.05);
+}
+.home-page-nav .menu-group summary{
+  padding:4px 9px;
+  color:#52656c;
+  font-size:10.5px;
+  font-weight:500;
+  line-height:1.6;
+  border:1px solid transparent;
+  border-radius:8px;
+}
+.home-page-nav .menu-group summary::after{
+  width:4px;
+  height:4px;
+  margin-right:6px;
+}
+.home-page-nav .menu-group summary:hover,
+.home-page-nav .menu-group[open] summary{
+  background:#fff;
+  color:var(--accent);
+  border-color:#dce8e7;
+  box-shadow:0 2px 8px rgba(18,37,46,.05);
+}
+.home-page-nav .submenu{
+  top:calc(100% + 5px);
+  min-width:175px;
+  padding:5px;
+  gap:2px;
+  border-radius:10px;
+  box-shadow:0 12px 26px rgba(18,37,46,.10);
+}
+.home-page-nav .submenu a{
+  padding:6px 9px;
+  font-size:10.5px;
+  border-radius:7px;
+}
+.home-page-nav .submenu a::before{
+  width:3px;
+  height:3px;
+  margin-left:6px;
+}
+@media(max-width:900px){
+  .page-menu .home-page-nav{
+    max-width:100%;
+    width:100%;
+    padding:2px 3px;
+    border-radius:9px;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{
+    padding:4px 7px;
+    font-size:10px;
+  }
+  .home-page-nav .submenu{
+    position:fixed;
+    top:54px;
+    right:10px;
+    left:10px;
+    width:auto;
+    min-width:0;
+    transform:none;
+  }
+}
+@media(max-width:560px){
+  .page-menu .home-page-nav{
+    justify-content:flex-start;
+    overflow-x:auto;
+  }
+  .home-page-nav .submenu{
+    top:53px;
+    right:9px;
+    left:9px;
+  }
+}
