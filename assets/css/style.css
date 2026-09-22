@@ -15,3 +15,146 @@
 .home-page-nav .submenu a:hover,.home-page-nav .submenu a.active{background:#f1f7f6;color:var(--accent);box-shadow:none}
 @media(max-width:900px){.page-menu .home-page-nav{max-width:100%;width:100%;justify-content:center;overflow:visible}.home-page-nav .menu-group summary{padding:5px 7px;font-size:10px}.home-page-nav .submenu{position:fixed;top:58px;right:auto;transform:none;min-width:165px}.home-page-nav .menu-group:nth-of-type(2) .submenu{right:50%;transform:translateX(50%)}}
 @media(max-width:560px){.page-menu .home-page-nav{justify-content:flex-start;overflow-x:auto}.home-page-nav .submenu{top:56px}.home-page-nav .menu-group summary{font-size:10px;padding:5px 7px}}
+
+/* ظرافت و یکپارچگی منوی بالای صفحه نخست */
+.page-menu .home-page-nav{
+  position:relative;
+  gap:5px;
+  padding:4px 6px;
+  border:1px solid rgba(196,211,212,.78);
+  border-radius:13px;
+  background:rgba(255,255,255,.62);
+  box-shadow:0 5px 18px rgba(18,37,46,.045),inset 0 1px 0 rgba(255,255,255,.85);
+}
+.home-page-nav>.menu-group,
+.home-page-nav>a{
+  position:relative;
+  border:1px solid transparent;
+  border-radius:9px;
+}
+.home-page-nav>a{
+  padding:6px 12px;
+  color:#52656c;
+  font-weight:500;
+}
+.home-page-nav>a:hover,
+.home-page-nav>a.active{
+  background:#fff;
+  color:var(--accent);
+  border-color:#dce8e7;
+  box-shadow:0 3px 10px rgba(18,37,46,.055);
+}
+.home-page-nav .menu-group summary{
+  position:relative;
+  padding:6px 12px 6px 10px;
+  color:#52656c;
+  font-weight:500;
+  border:1px solid transparent;
+  border-radius:9px;
+}
+.home-page-nav .menu-group summary::after{
+  content:"";
+  width:5px;
+  height:5px;
+  margin-right:7px;
+  border-left:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;
+  transform:rotate(-45deg) translateY(-1px);
+  vertical-align:middle;
+  transition:transform .22s ease;
+}
+.home-page-nav .menu-group[open] summary::after{
+  transform:rotate(135deg) translateY(-1px);
+}
+.home-page-nav .menu-group summary:hover,
+.home-page-nav .menu-group[open] summary{
+  background:#fff;
+  color:var(--accent);
+  border-color:#dce8e7;
+  box-shadow:0 3px 10px rgba(18,37,46,.055);
+}
+.home-page-nav .submenu{
+  top:calc(100% + 7px);
+  min-width:188px;
+  padding:6px;
+  gap:3px;
+  border:1px solid #d8e5e4;
+  border-radius:12px;
+  background:rgba(255,255,255,.98);
+  box-shadow:0 15px 32px rgba(18,37,46,.11);
+}
+.home-page-nav .submenu::before{
+  content:"";
+  position:absolute;
+  top:-5px;
+  right:50%;
+  width:9px;
+  height:9px;
+  background:#fff;
+  border-right:1px solid #d8e5e4;
+  border-top:1px solid #d8e5e4;
+  transform:translateX(50%) rotate(-45deg);
+}
+.home-page-nav .submenu a{
+  position:relative;
+  padding:7px 11px;
+  border:1px solid transparent;
+  border-radius:8px;
+  color:#5d6e74;
+  font-size:11px;
+  transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease;
+}
+.home-page-nav .submenu a::before{
+  content:"";
+  display:inline-block;
+  width:4px;
+  height:4px;
+  margin-left:7px;
+  border-radius:50%;
+  background:#c9d8d8;
+  vertical-align:middle;
+  transition:background .2s ease,transform .2s ease;
+}
+.home-page-nav .submenu a:hover,
+.home-page-nav .submenu a.active{
+  background:#f4f9f8;
+  color:var(--accent);
+  border-color:#e0ecea;
+  transform:translateX(-2px);
+  box-shadow:none;
+}
+.home-page-nav .submenu a:hover::before,
+.home-page-nav .submenu a.active::before{
+  background:var(--accent2);
+  transform:scale(1.35);
+}
+@media(max-width:900px){
+  .page-menu .home-page-nav{
+    padding:4px;
+    border-radius:12px;
+  }
+  .home-page-nav>a,.home-page-nav .menu-group summary{
+    padding:5px 8px;
+    font-size:10px;
+  }
+  .home-page-nav .submenu{
+    right:12px;
+    left:12px;
+    width:auto;
+    min-width:0;
+    transform:none;
+    top:60px;
+  }
+  .home-page-nav .submenu::before{right:50%}
+}
+@media(max-width:560px){
+  .page-menu .home-page-nav{
+    padding:4px;
+    border-radius:11px;
+  }
+  .home-page-nav .submenu{
+    top:58px;
+    right:10px;
+    left:10px;
+  }
+}
