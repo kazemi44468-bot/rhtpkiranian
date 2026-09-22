@@ -413,3 +413,172 @@ main{padding-top:54px}
 footer{background:linear-gradient(180deg,#142a33 0%,#12252e 100%);border-top:1px solid rgba(201,155,61,.12)}
 footer strong{color:#fff}
 footer span{color:#a8b9be}
+
+
+/* بهینه‌سازی نهایی هدر و منوی موبایل */
+@media(max-width:900px){
+  .sidebar{
+    right:8px;
+    left:8px;
+    bottom:8px;
+    width:auto;
+    height:58px;
+    padding:5px 6px;
+    border-radius:17px;
+  }
+  .sidebar nav{
+    width:100%;
+    height:100%;
+    display:grid;
+    grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:3px;
+  }
+  .sidebar a{
+    width:100%;
+    min-width:0;
+    height:48px;
+    padding:3px 2px;
+    border-radius:11px;
+    font-size:9px;
+    line-height:1.35;
+    white-space:normal;
+  }
+  .sidebar a::before{
+    right:50%;
+    bottom:1px;
+    width:15px;
+    height:2px!important;
+    transform:translateX(50%);
+  }
+  main{padding-bottom:74px}
+  .page-menu{
+    min-height:50px;
+    height:50px;
+    padding:5px 8px;
+  }
+  .page-menu .page-title,
+  .page-menu + .breadcrumb{
+    display:none;
+  }
+  .page-menu nav{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    overflow:visible;
+    justify-content:center;
+  }
+  .page-menu .home-page-nav{
+    width:100%;
+    max-width:100%;
+    min-width:0;
+    padding:2px;
+    gap:2px;
+    overflow:visible;
+    justify-content:center;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group{
+    min-width:0;
+    flex:1 1 0;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{
+    width:100%;
+    min-width:0;
+    padding:5px 3px;
+    font-size:9.5px;
+    text-align:center;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+  .home-page-nav .menu-group summary::after{
+    width:4px;
+    height:4px;
+    margin-right:4px;
+  }
+  .page-menu.is-scrolled{
+    min-height:46px;
+    height:46px;
+    padding:4px 7px;
+  }
+  .page-menu.is-scrolled .home-page-nav>a,
+  .page-menu.is-scrolled .home-page-nav .menu-group summary{
+    padding-top:4px;
+    padding-bottom:4px;
+    font-size:9px;
+  }
+  .home-page-nav .submenu{
+    top:52px;
+    right:7px;
+    left:7px;
+    width:auto;
+    max-width:none;
+  }
+  .page-menu.is-scrolled .home-page-nav .submenu{
+    top:48px;
+  }
+}
+@media(max-width:560px){
+  .sidebar{
+    right:5px;
+    left:5px;
+    bottom:5px;
+    height:56px;
+    padding:4px 5px;
+    border-radius:16px;
+  }
+  .sidebar nav{
+    grid-template-columns:repeat(7,minmax(0,1fr));
+    gap:2px;
+  }
+  .sidebar a{
+    height:47px;
+    font-size:8px;
+    padding:3px 1px;
+  }
+  main{padding-bottom:68px}
+  .page-menu{
+    height:48px;
+    min-height:48px;
+    padding:4px 6px;
+  }
+  .page-menu nav,
+  .page-menu .home-page-nav{
+    justify-content:stretch;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{
+    padding:4px 2px;
+    font-size:8.5px;
+  }
+  .home-page-nav .menu-group summary::after{
+    width:3px;
+    height:3px;
+    margin-right:3px;
+  }
+  .page-menu.is-scrolled{
+    height:44px;
+    min-height:44px;
+    padding:3px 5px;
+  }
+  .page-menu.is-scrolled .home-page-nav>a,
+  .page-menu.is-scrolled .home-page-nav .menu-group summary{
+    font-size:8px;
+    padding-top:3px;
+    padding-bottom:3px;
+  }
+  .home-page-nav .submenu{
+    top:50px;
+    right:6px;
+    left:6px;
+  }
+  .page-menu.is-scrolled .home-page-nav .submenu{
+    top:45px;
+  }
+}
+@media(max-width:390px){
+  .sidebar a{font-size:7.5px}
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{font-size:8px}
+}
