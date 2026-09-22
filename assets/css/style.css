@@ -347,3 +347,22 @@ section::before{content:"";position:absolute;inset:24px 4% auto 4%;height:1px;ba
 /* توازن اطلاعات هویتی باقی‌مانده در هدر */
 .meta-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:560px){.meta-grid{grid-template-columns:1fr}}
+
+/* هویت بصری ظریف و مستقل برای نوار منوی بالایی */
+.page-menu{position:relative;isolation:isolate;overflow:hidden;background:
+ linear-gradient(105deg,rgba(255,255,255,.97) 0%,rgba(246,250,249,.96) 58%,rgba(239,246,244,.97) 100%);
+ border-bottom:1px solid rgba(8,127,116,.10);box-shadow:0 8px 24px rgba(23,38,47,.045)}
+.page-menu::before{content:"";position:absolute;z-index:-1;left:0;top:0;width:38%;height:100%;background:
+ linear-gradient(90deg,rgba(8,127,116,.045),transparent);
+ clip-path:polygon(0 0,100% 0,82% 100%,0 100%);pointer-events:none}
+.page-menu::after{content:"";position:absolute;z-index:-1;right:26px;top:50%;width:190px;height:1px;
+ background:linear-gradient(90deg,transparent,rgba(201,155,61,.20),transparent);
+ transform:translateY(-50%);pointer-events:none}
+.page-menu .page-title,.page-menu nav{position:relative;z-index:2}
+.page-menu .page-title::after{content:"";display:inline-block;width:26px;height:2px;margin-right:10px;
+ vertical-align:middle;background:linear-gradient(90deg,var(--accent2),rgba(201,155,61,0));border-radius:2px}
+@media(max-width:700px){
+ .page-menu::after{right:12px;width:100px}
+ .page-menu::before{width:52%}
+ .page-menu .page-title::after{width:18px;margin-right:7px}
+}
