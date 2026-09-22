@@ -366,3 +366,18 @@ section::before{content:"";position:absolute;inset:24px 4% auto 4%;height:1px;ba
  .page-menu::before{width:52%}
  .page-menu .page-title::after{width:18px;margin-right:7px}
 }
+
+
+/* نوار بالایی یکپارچه، ثابت و مینیمال هنگام اسکرول */
+.page-menu{position:fixed;top:0;right:var(--sidebar-w);left:0;width:auto;min-height:54px;height:54px;padding:6px 24px;z-index:55;transition:height .22s ease,background .22s ease,box-shadow .22s ease,padding .22s ease}
+main{padding-top:54px}
+.page-menu .page-title{transition:opacity .22s ease,transform .22s ease,font-size .22s ease}
+.page-menu nav{transition:gap .22s ease,max-width .22s ease}
+.page-menu.is-scrolled{min-height:44px;height:44px;padding-top:4px;padding-bottom:4px;background:rgba(255,255,255,.91);box-shadow:0 6px 20px rgba(18,37,46,.075);backdrop-filter:blur(16px)}
+.page-menu.is-scrolled .page-title{font-size:14px;transform:scale(.94);transform-origin:right center}
+.page-menu.is-scrolled .page-title span{font-size:15px}
+.page-menu.is-scrolled nav{gap:1px}
+.page-menu.is-scrolled a,.page-menu.is-scrolled .home-page-nav .menu-group summary{padding-top:3px;padding-bottom:3px;font-size:10px}
+@media(max-width:900px){.page-menu{right:0;left:0}main{padding-top:54px}}
+@media(max-width:700px){.page-menu{min-height:50px;height:50px;padding:7px 14px}main{padding-top:50px}.page-menu.is-scrolled{min-height:44px;height:44px;padding-top:5px;padding-bottom:5px}.page-menu nav{width:100%}}
+@media(max-width:560px){.page-menu{padding-left:10px;padding-right:10px}.page-menu.is-scrolled a,.page-menu.is-scrolled .home-page-nav .menu-group summary{font-size:9px;padding-left:6px;padding-right:6px}}
