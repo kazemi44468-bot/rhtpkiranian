@@ -381,3 +381,35 @@ main{padding-top:54px}
 @media(max-width:900px){.page-menu{right:0;left:0}main{padding-top:54px}}
 @media(max-width:700px){.page-menu{min-height:50px;height:50px;padding:7px 14px}main{padding-top:50px}.page-menu.is-scrolled{min-height:44px;height:44px;padding-top:5px;padding-bottom:5px}.page-menu nav{width:100%}}
 @media(max-width:560px){.page-menu{padding-left:10px;padding-right:10px}.page-menu.is-scrolled a,.page-menu.is-scrolled .home-page-nav .menu-group summary{font-size:9px;padding-left:6px;padding-right:6px}}
+
+
+/* اصلاح نهایی بازشدن زیرمنوها و جلوگیری از بریدگی */
+.page-menu{overflow:visible}
+.page-menu nav{overflow:visible}
+.page-menu .home-page-nav{overflow:visible}
+.home-page-nav .menu-group{z-index:4}
+.home-page-nav .menu-group[open]{z-index:20}
+.home-page-nav .submenu{z-index:120;isolation:isolate}
+.home-page-nav .submenu a{position:relative;z-index:2}
+
+/* زیرمنوی موبایل مستقل از ناحیه اسکرول افقی */
+@media(max-width:900px){
+  .page-menu nav{overflow:visible}
+  .page-menu .home-page-nav{overflow:visible}
+  .home-page-nav .submenu{position:fixed;top:54px;right:10px;left:10px;z-index:120}
+  .page-menu.is-scrolled .home-page-nav .submenu{top:44px}
+}
+@media(max-width:560px){
+  .page-menu nav{overflow:visible}
+  .page-menu .home-page-nav{overflow:visible;justify-content:flex-start}
+  .home-page-nav .submenu{top:53px;right:9px;left:9px}
+  .page-menu.is-scrolled .home-page-nav .submenu{top:44px}
+}
+
+/* رنگ‌بندی منوی کناری و فوتر؛ هماهنگ با هویت سبز-طلایی سایت */
+.sidebar{background:linear-gradient(180deg,#142a33 0%,#12252e 58%,#10222a 100%)}
+.sidebar a:hover,.sidebar a.active{background:linear-gradient(90deg,rgba(255,255,255,.055),rgba(8,127,116,.13))}
+.sidebar a.active{color:#fff}
+footer{background:linear-gradient(180deg,#142a33 0%,#12252e 100%);border-top:1px solid rgba(201,155,61,.12)}
+footer strong{color:#fff}
+footer span{color:#a8b9be}
