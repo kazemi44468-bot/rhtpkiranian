@@ -670,3 +670,96 @@ footer span{color:#a8b9be}
     font-size:8.5px;
   }
 }
+
+
+/* منوی بالایی در عرض‌های کم: اسکرول افقی آزاد، بدون فشرده‌سازی یا بریدگی متن */
+@media(max-width:700px){
+  .page-menu{
+    padding-left:8px;
+    padding-right:8px;
+    overflow:hidden;
+  }
+  .page-menu nav{
+    width:100%;
+    max-width:none;
+    min-width:0;
+    display:block;
+    overflow-x:auto;
+    overflow-y:visible;
+    scrollbar-width:thin;
+    scrollbar-color:rgba(18,37,46,.28) transparent;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior-x:contain;
+    touch-action:pan-x pan-y;
+  }
+  .page-menu nav::-webkit-scrollbar{
+    height:4px;
+  }
+  .page-menu nav::-webkit-scrollbar-track{
+    background:transparent;
+  }
+  .page-menu nav::-webkit-scrollbar-thumb{
+    background:rgba(18,37,46,.25);
+    border-radius:10px;
+  }
+  .page-menu .home-page-nav{
+    width:max-content;
+    max-width:none;
+    min-width:max-content;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:4px;
+    overflow:visible;
+    padding:2px 4px;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group{
+    flex:0 0 auto;
+    min-width:max-content;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{
+    width:auto;
+    min-width:max-content;
+    padding:5px 10px;
+    font-size:10px;
+    white-space:nowrap;
+    overflow:visible;
+    text-overflow:clip;
+  }
+  .page-menu.is-scrolled .home-page-nav>a,
+  .page-menu.is-scrolled .home-page-nav .menu-group summary{
+    padding:4px 9px;
+    font-size:9.5px;
+  }
+}
+@media(max-width:390px){
+  .page-menu{
+    height:48px;
+    min-height:48px;
+    padding-left:5px;
+    padding-right:5px;
+  }
+  .page-menu nav{
+    scrollbar-width:none;
+  }
+  .page-menu nav::-webkit-scrollbar{
+    display:none;
+  }
+  .page-menu .home-page-nav{
+    gap:3px;
+    padding-left:3px;
+    padding-right:3px;
+  }
+  .home-page-nav>a,
+  .home-page-nav .menu-group summary{
+    padding:5px 9px;
+    font-size:9.5px;
+  }
+  .page-menu.is-scrolled .home-page-nav>a,
+  .page-menu.is-scrolled .home-page-nav .menu-group summary{
+    padding:4px 8px;
+    font-size:9px;
+  }
+}
