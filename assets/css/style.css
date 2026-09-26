@@ -816,3 +816,184 @@ footer span{color:#a8b9be}
   .page-menu.is-scrolled nav.home-page-nav>a,
   .page-menu.is-scrolled nav.home-page-nav>.menu-group>summary{font-size:9px!important;padding:4px 8px!important}
 }
+
+/* هویت لوگویی جدید: بدنه و فوتر */
+.content-logo{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  margin:0 0 18px;
+  min-height:54px;
+}
+.content-logo img{
+  display:block;
+  width:auto;
+  max-width:250px;
+  max-height:78px;
+  object-fit:contain;
+  object-position:right center;
+}
+.site-footer{
+  position:relative;
+  overflow:hidden;
+  background:linear-gradient(135deg,#12252e 0%,#162f38 52%,#10222a 100%);
+  color:#dbe5e8;
+  padding:34px clamp(20px,6vw,90px);
+  border-top:1px solid rgba(201,155,61,.18);
+}
+.site-footer::before{
+  content:"";
+  position:absolute;
+  width:360px;
+  height:360px;
+  right:-185px;
+  top:-185px;
+  border:1px solid rgba(201,155,61,.12);
+  border-radius:50%;
+  box-shadow:0 0 0 28px rgba(201,155,61,.025),0 0 0 62px rgba(8,127,116,.025);
+  pointer-events:none;
+}
+.site-footer::after{
+  content:"";
+  position:absolute;
+  left:7%;
+  bottom:14px;
+  width:170px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,155,61,.28),transparent);
+  pointer-events:none;
+}
+.footer-inner{
+  position:relative;
+  z-index:2;
+  max-width:1500px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:minmax(250px,1.2fr) minmax(260px,1fr) auto;
+  gap:30px;
+  align-items:center;
+}
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  min-width:0;
+}
+.footer-logo{
+  position:relative;
+  width:76px;
+  height:76px;
+  flex:0 0 76px;
+  display:grid;
+  place-items:center;
+}
+.footer-logo img{
+  position:relative;
+  z-index:2;
+  width:68px;
+  height:68px;
+  object-fit:contain;
+  display:block;
+}
+.footer-ring{
+  position:absolute;
+  border:1px solid rgba(201,155,61,.22);
+  border-radius:50%;
+  pointer-events:none;
+}
+.footer-ring.ring-a{inset:3px;transform:rotate(14deg)}
+.footer-ring.ring-b{inset:9px;border-color:rgba(8,127,116,.20);transform:rotate(-18deg)}
+.footer-brand-copy{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.footer-brand-copy strong{
+  color:#fff;
+  font-size:17px;
+  font-weight:700;
+}
+.footer-brand-copy span{
+  color:#aebfc4;
+  font-size:11px;
+  line-height:1.8;
+}
+.footer-copy{
+  display:flex;
+  flex-direction:column;
+  gap:5px;
+  color:#aebfc4;
+  font-size:10px;
+  line-height:1.9;
+}
+.footer-copy span:last-child{color:#d8e1e3}
+.footer-mark{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  color:#c99b3d;
+  font-size:12px;
+  white-space:nowrap;
+}
+.footer-mark i{
+  display:block;
+  width:28px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,155,61,.65));
+}
+.footer-mark i:last-child{background:linear-gradient(90deg,rgba(201,155,61,.65),transparent)}
+/* تعامل قطعی با لینک‌های منوی بالایی */
+.page-menu,
+.page-menu nav,
+.page-menu a,
+.page-menu summary{
+  pointer-events:auto;
+}
+.page-menu nav{
+  position:relative;
+  z-index:5;
+}
+.page-menu a,
+.page-menu summary{cursor:pointer}
+.page-menu a:focus-visible,
+.page-menu summary:focus-visible{
+  outline:2px solid rgba(201,155,61,.65);
+  outline-offset:2px;
+}
+/* نوار بالایی روی موبایل: اسکرول افقی بدون بریدگی */
+@media(max-width:900px){
+  .page-menu{overflow:visible!important}
+  .page-menu nav.home-page-nav{
+    overflow-x:auto!important;
+    overflow-y:visible!important;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+  }
+  .page-menu nav.home-page-nav::-webkit-scrollbar{display:none}
+  .page-menu nav.home-page-nav>a,
+  .page-menu nav.home-page-nav>.menu-group{
+    flex:0 0 auto!important;
+  }
+}
+@media(max-width:700px){
+  .content-logo{justify-content:center;margin:0 0 14px;min-height:44px}
+  .content-logo img{max-width:205px;max-height:62px}
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:20px;
+    text-align:center;
+  }
+  .footer-brand{justify-content:center}
+  .footer-copy{align-items:center}
+  .footer-mark{justify-content:center}
+  .footer-logo{width:68px;height:68px;flex-basis:68px}
+  .footer-logo img{width:60px;height:60px}
+  .site-footer{padding:30px 18px 34px}
+}
+@media(max-width:390px){
+  .content-logo img{max-width:180px;max-height:54px}
+  .footer-brand-copy strong{font-size:15px}
+  .footer-brand-copy span{font-size:9px}
+  .footer-copy{font-size:9px}
+}
