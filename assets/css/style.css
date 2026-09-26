@@ -455,7 +455,7 @@
 }
 .site-footer .footer-brand::before{inset:6px 7px 7px 7px}
 .site-footer .footer-brand::after{inset:10px 13px 10px 13px;border-color:rgba(255,255,255,.055);transform:rotate(1deg)}
-.site-footer .footer-brand img{position:relative;z-index:2}
+.site-footer .footer-brand img{position:relative;z-index:2;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.08),inset 0 0 0 1px rgba(201,155,61,.10)}
 @media(max-width:700px){
   .site-footer .footer-brand{
     min-height:78px;
