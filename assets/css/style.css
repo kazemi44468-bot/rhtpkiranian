@@ -685,3 +685,27 @@ main,.sidebar,.top{position:relative;z-index:1}
   .footer-brand{width:100%;min-width:0;height:88px}
   .footer-brand::before{width:138px;height:74px}
 }
+
+
+/* لایه واترمارک: لوگو روی پس‌زمینه می‌ماند و محتوا هنگام اسکرول از روی آن عبور می‌کند */
+body::before{display:none}
+main{position:relative;z-index:1}
+main::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:5;
+  pointer-events:none;
+  background:url("../images/logo.png") center center / min(46vw,560px) no-repeat;
+  opacity:.055;
+  filter:saturate(.72);
+}
+main>*,main>.page-menu,main>footer{position:relative;z-index:6}
+.sidebar,.top{z-index:60}
+@media(max-width:560px){
+  main::before{
+    background-size:min(76vw,430px);
+    background-position:center 42%;
+    opacity:.048;
+  }
+}
