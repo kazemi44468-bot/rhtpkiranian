@@ -455,7 +455,7 @@
 }
 .site-footer .footer-brand::before{inset:6px 7px 7px 7px}
 .site-footer .footer-brand::after{inset:10px 13px 10px 13px;border-color:rgba(255,255,255,.055);transform:rotate(1deg)}
-.site-footer .footer-brand img{position:relative;z-index:2;padding:7px 14px;border-radius:8px;background:rgba(255,255,255,.92);box-shadow:0 4px 14px rgba(0,0,0,.08),inset 0 0 0 1px rgba(201,155,61,.10)}
+.site-footer .footer-brand img{position:relative;z-index:2;padding:8px 15px;border-radius:9px;background-color:rgba(236,239,236,.84);background-image:radial-gradient(circle at 18% 25%,rgba(201,155,61,.16) 0 1px,transparent 1.5px),linear-gradient(135deg,rgba(255,255,255,.18),rgba(201,155,61,.055));background-size:14px 14px,100% 100%;box-shadow:0 4px 16px rgba(0,0,0,.10),inset 0 0 0 1px rgba(255,255,255,.28),inset 0 0 0 1px rgba(201,155,61,.12);backdrop-filter:blur(2px)}
 @media(max-width:700px){
   .site-footer .footer-brand{
     min-height:78px;
