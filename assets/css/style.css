@@ -762,3 +762,33 @@
 @media(max-width:1050px){.admin-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-sections{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.admin-kpis{grid-template-columns:1fr 1fr}.admin-toolbar{padding:12px}.admin-filter{padding:8px}.ops-summary{grid-template-columns:1fr 1fr}.quick-actions{grid-template-columns:1fr 1fr}.ops-grid{grid-template-columns:1fr}.form-panel{padding:15px}.form-panel::before{top:12px;bottom:12px}#workflow .timeline,#dashboard .timeline{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.admin-kpis{grid-template-columns:1fr 1fr}.ops-summary{grid-template-columns:1fr}.quick-actions{grid-template-columns:1fr}#workflow .timeline,#dashboard .timeline{grid-template-columns:1fr 1fr}.admin-tools .admin-btn{min-width:0;padding:8px 7px}}
+
+/* لایه داشبورد مدیریتی پنل */
+.admin-command-grid{display:grid;grid-template-columns:1.6fr repeat(3,1fr);gap:12px;margin:0 0 14px}
+.admin-command-card{position:relative;min-height:138px;padding:17px;border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#fff,#f7faf9);box-shadow:0 7px 22px rgba(18,37,46,.035);display:flex;flex-direction:column;overflow:hidden}
+.admin-command-card::after{content:"";position:absolute;right:0;bottom:0;width:46%;height:2px;background:linear-gradient(90deg,transparent,var(--accent2))}
+.admin-command-card.admin-command-main{background:radial-gradient(circle at 90% 15%,rgba(8,127,116,.09),transparent 28%),linear-gradient(145deg,#fff,#edf5f3)}
+.admin-command-card .command-label{font-size:9px;color:var(--muted);margin-bottom:8px}
+.admin-command-card strong{font-size:21px;margin-bottom:5px}
+.admin-command-card span{font-size:10px;color:var(--muted);line-height:1.9}
+.admin-command-card a{margin-top:auto;color:var(--accent);font-size:10px;text-decoration:none;font-weight:700}
+.command-meta{margin-top:auto;padding-top:10px;border-top:1px solid rgba(210,221,222,.7);display:flex;justify-content:space-between;gap:8px}
+.command-meta b,.command-meta span{font-size:9px}
+.admin-control-board{display:grid;grid-template-columns:1.35fr 1fr;gap:12px;margin-bottom:16px}
+.control-panel{border:1px solid var(--line);border-radius:15px;background:#fff;padding:15px;box-shadow:0 6px 20px rgba(18,37,46,.03)}
+.panel-title{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;margin-bottom:8px;border-bottom:1px solid #edf1f1}
+.panel-title b{font-size:12px}.panel-title span{font-size:9px;color:var(--muted)}
+.action-queue{display:grid;gap:2px}
+.queue-item{display:grid;grid-template-columns:10px 1fr auto;gap:9px;align-items:center;padding:9px 2px;border-bottom:1px dashed #e4ebeb}
+.queue-item:last-child{border-bottom:0}
+.queue-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px #eef6f4}
+.queue-item b{display:block;font-size:10px;font-weight:700}
+.queue-item small{display:block;color:var(--muted);font-size:8px;margin-top:2px}
+.queue-item em{font-style:normal;font-size:8px;padding:3px 7px;border-radius:999px;background:#f5f7f7;color:#65767b;white-space:nowrap}
+.composition{display:grid;gap:12px;padding-top:4px}
+.composition>div{display:grid;grid-template-columns:92px 1fr 25px;gap:8px;align-items:center}
+.composition span,.composition b{font-size:9px}.composition b{text-align:left;color:var(--accent)}
+.composition i{height:7px;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));width:0;transition:width .35s ease}
+@media(max-width:1100px){.admin-command-grid{grid-template-columns:1fr 1fr}.admin-command-main{grid-column:1/-1}.admin-control-board{grid-template-columns:1fr}}
+@media(max-width:700px){.admin-command-grid{grid-template-columns:1fr 1fr}.admin-command-main{grid-column:1/-1}.admin-command-card{min-height:122px;padding:13px}.admin-command-card strong{font-size:18px}.admin-control-board{grid-template-columns:1fr}.composition>div{grid-template-columns:82px 1fr 22px}}
+@media(max-width:480px){.admin-command-grid{grid-template-columns:1fr}.admin-command-main{grid-column:auto}.admin-command-card{min-height:112px}.command-meta{flex-direction:column;gap:2px}.queue-item{grid-template-columns:8px 1fr}.queue-item em{grid-column:2;justify-self:start}}
