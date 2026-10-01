@@ -700,3 +700,65 @@
   .footer-brand img{width:190px}
   .footer-links a{min-width:52px;padding:5px 7px;font-size:8px}
 }
+
+/* ارتقای حرفه‌ای مرکز عملیات و پنل مدیریت */
+.admin-note{position:relative;border-right:3px solid var(--accent2);background:linear-gradient(135deg,rgba(255,255,255,.92),rgba(237,246,244,.82));box-shadow:0 8px 26px rgba(18,37,46,.035)}
+.admin-kpis .admin-kpi{position:relative;overflow:hidden;min-height:76px;display:flex;flex-direction:column;justify-content:center;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.admin-kpis .admin-kpi::after{content:"";position:absolute;right:0;top:0;width:4px;height:100%;background:linear-gradient(180deg,var(--accent2),transparent);opacity:.55}
+.admin-kpis .admin-kpi:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(18,37,46,.07);border-color:#cbdcda}
+.admin-kpis .admin-kpi strong{font-size:22px}
+.admin-overview .admin-side-card{min-height:164px}
+.admin-overview .admin-side-card:first-child{background:linear-gradient(145deg,#fff,#f5f9f8)}
+.admin-progress{height:8px;background:#e9efef;box-shadow:inset 0 1px 2px rgba(18,37,46,.06)}
+.admin-progress i{background:linear-gradient(90deg,var(--accent),var(--accent2))}
+.admin-toolbar{padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(135deg,#fff,#f7faf9);box-shadow:0 7px 20px rgba(18,37,46,.035)}
+.admin-toolbar>b,.admin-toolbar>div:first-child>b{font-size:13px}
+.admin-filter{padding:10px;border:1px solid #e4ebeb;border-radius:13px;background:#f8faf9}
+.admin-filter input,.admin-filter select{background:#fff;min-height:36px}
+.admin-table-wrap{box-shadow:0 8px 24px rgba(18,37,46,.045)}
+.admin-table tbody tr{transition:background .15s ease}
+.admin-table tbody tr:hover{background:#f8fbfa}
+.admin-table td:first-child{color:var(--accent)}
+.admin-table .owner{min-width:120px;border:1px solid #d7e1e2;border-radius:7px;padding:5px 7px;background:#fff;color:var(--ink);font:inherit;font-size:9px}
+.admin-sections .admin-module{position:relative;overflow:hidden;min-height:126px;display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.admin-sections .admin-module::before{content:"";position:absolute;right:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent2),transparent);opacity:.55}
+.admin-sections .admin-module:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(18,37,46,.065);border-color:#cbdcda}
+.admin-module strong{margin-top:auto}
+#workflow .timeline-step{min-height:84px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,#fff,#f8faf9)}
+#workflow .timeline-step b{color:var(--ink)}
+#workflow .timeline-step span{max-width:120px;margin-left:auto;margin-right:auto}
+#workflow .matrix div{min-height:108px;background:linear-gradient(145deg,#fff,#f7faf9);border-right:3px solid rgba(201,155,61,.45)}
+#activity .admin-side-card{background:linear-gradient(145deg,#fff,#f9fbfa)}
+.activity-row:last-child{border-bottom:0}
+#network .architecture div{min-height:92px;background:linear-gradient(145deg,#fff,#f7faf9)}
+#network .architecture b{font-size:12px;margin-bottom:4px}
+
+/* مرکز عملیات: تأکید بیشتر بر مسیر اقدام و وضعیت */
+.ops-hero-grid .ops-highlight{background:radial-gradient(circle at 92% 10%,rgba(8,127,116,.08),transparent 28%),linear-gradient(145deg,#fff,#f4f9f8);border-color:#d8e6e4}
+.ops-highlight h3{font-size:16px}
+.quick-actions .quick-action{position:relative;overflow:hidden;min-height:70px;display:flex;flex-direction:column;justify-content:center;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.quick-actions .quick-action::after{content:"";position:absolute;right:0;bottom:0;width:42px;height:2px;background:var(--accent2);opacity:.65}
+.quick-actions .quick-action:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(18,37,46,.07);border-color:#cbdcda}
+.ops-summary .metric{position:relative;overflow:hidden;min-height:72px;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(145deg,#fff,#f7faf9);transition:transform .2s ease,box-shadow .2s ease}
+.ops-summary .metric::after{content:"";position:absolute;right:0;bottom:0;width:34%;height:2px;background:linear-gradient(90deg,transparent,var(--accent2))}
+.ops-summary .metric:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(18,37,46,.055)}
+.ops-grid .ops-card{position:relative;overflow:hidden;min-height:205px;background:linear-gradient(145deg,#fff,#f8fbfa);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.ops-grid .ops-card::before{content:"";position:absolute;right:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),transparent);opacity:.7}
+.ops-grid .ops-card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(18,37,46,.07);border-color:#cbdcda}
+.ops-grid .ops-card .action-btn{align-self:flex-start}
+.form-panel{position:relative;background:linear-gradient(145deg,#fff,#fafcfc);box-shadow:0 8px 24px rgba(18,37,46,.045)}
+.form-panel::before{content:"";position:absolute;right:0;top:18px;bottom:18px;width:2px;background:linear-gradient(180deg,var(--accent2),transparent);opacity:.6}
+.form-field input,.form-field select,.form-field textarea{transition:border-color .18s ease,box-shadow .18s ease,background .18s ease}
+.form-field input:hover,.form-field select:hover,.form-field textarea:hover{border-color:#c7d9d7;background:#fff}
+.form-actions{padding-top:4px}
+#dashboard .timeline-step{min-height:84px;background:linear-gradient(180deg,#fff,#f7faf9)}
+#dashboard .form-panel{margin-top:20px}
+#track-result:empty{display:none}
+#dashboard .status-list{position:relative;padding-right:14px}
+#dashboard .status-list::before{content:"";position:absolute;right:4px;top:7px;bottom:7px;width:1px;background:linear-gradient(180deg,var(--accent2),rgba(201,155,61,0))}
+#dashboard .status-row{position:relative;box-shadow:0 4px 14px rgba(18,37,46,.025)}
+#dashboard .status-row::before{content:"";position:absolute;right:-14px;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px #eef6f4}
+.demo-strip{background:linear-gradient(135deg,#f3f8f7,#faf9f3);border-color:#cbdcda;box-shadow:0 5px 16px rgba(18,37,46,.025)}
+@media(max-width:1050px){.admin-kpis{grid-template-columns:repeat(3,minmax(0,1fr))}.admin-sections{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.admin-kpis{grid-template-columns:1fr 1fr}.admin-toolbar{padding:12px}.admin-filter{padding:8px}.ops-summary{grid-template-columns:1fr 1fr}.quick-actions{grid-template-columns:1fr 1fr}.ops-grid{grid-template-columns:1fr}.form-panel{padding:15px}.form-panel::before{top:12px;bottom:12px}#workflow .timeline,#dashboard .timeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.admin-kpis{grid-template-columns:1fr 1fr}.ops-summary{grid-template-columns:1fr}.quick-actions{grid-template-columns:1fr}#workflow .timeline,#dashboard .timeline{grid-template-columns:1fr 1fr}.admin-tools .admin-btn{min-width:0;padding:8px 7px}}
