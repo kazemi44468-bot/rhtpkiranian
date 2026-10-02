@@ -16,6 +16,8 @@ public class MainActivity extends Activity {
     private TextView title;
     private final int ink=Color.rgb(24,43,50), muted=Color.rgb(105,123,128), accent=Color.rgb(8,127,116), gold=Color.rgb(201,155,61), bg=Color.rgb(245,248,248);
     private final MockApi api=new MockApi();
+    private static final String API_BASE_URL="";
+    private TextView apiStatus;
 
     @Override public void onCreate(Bundle b){
         super.onCreate(b);
@@ -23,6 +25,7 @@ public class MainActivity extends Activity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         buildShell();
         showDashboard();
+        if(!API_BASE_URL.isEmpty()) checkApi();
     }
 
     private void buildShell(){
@@ -35,6 +38,7 @@ public class MainActivity extends Activity {
         TextView sub=label("راهکار هوشمند تأمین، پشتیبانی و خدمات ایرانیان",9,muted); ht.addView(title); ht.addView(sub);
         head.addView(ht,new LinearLayout.LayoutParams(0,-2,1));
         TextView bell=label("●",18,gold); bell.setGravity(Gravity.CENTER); head.addView(bell,new LinearLayout.LayoutParams(dp(38),dp(38)));
+        apiStatus=label(API_BASE_URL.isEmpty()?"حالت آزمایشی · Mock API":"در حال اتصال به API",8,muted); apiStatus.setGravity(Gravity.CENTER);
         root.addView(head);
 
         ScrollView scroll=new ScrollView(this); content=new LinearLayout(this); content.setOrientation(LinearLayout.VERTICAL); content.setPadding(dp(16),dp(6),dp(16),dp(92)); scroll.addView(content); root.addView(scroll,new LinearLayout.LayoutParams(-1,0,1));
@@ -45,9 +49,11 @@ public class MainActivity extends Activity {
         setContentView(root);
     }
 
+    private void checkApi(){ new Thread(()->{ try{ java.net.URL u=new java.net.URL(API_BASE_URL+"/api/v1/health"); java.net.HttpURLConnection q=(java.net.HttpURLConnection)u.openConnection(); q.setConnectTimeout(5000); q.setReadTimeout(5000); int code=q.getResponseCode(); runOnUiThread(()->apiStatus.setText(code==200?"API متصل · آنلاین":"API پاسخ نامعتبر")); q.disconnect(); }catch(Exception e){runOnUiThread(()->apiStatus.setText("API قطع · استفاده از داده محلی"));} }).start(); }
+
     private void showDashboard(){
         title.setText("مرکز مدیریت"); content.removeAllViews();
-        content.addView(sectionTitle("نمای کلی سامانه","وضعیت لحظه‌ای عملیات"));
+        content.addView(sectionTitle("نمای کلی سامانه",API_BASE_URL.isEmpty()?"داده آزمایشی داخلی":"داده زنده از API"));
         LinearLayout k=new LinearLayout(this); k.setOrientation(LinearLayout.HORIZONTAL);
         k.addView(metric("پرونده باز",api.open(),accent),new LinearLayout.LayoutParams(0,dp(96),1));
         k.addView(space(8,1)); k.addView(metric("فوری",api.urgent(),gold),new LinearLayout.LayoutParams(0,dp(96),1)); content.addView(k);
@@ -63,13 +69,13 @@ public class MainActivity extends Activity {
         for(String s:steps){TextView v=label(s,9,accent);v.setGravity(Gravity.CENTER);v.setBackground(round(Color.WHITE,10));flow.addView(v,new LinearLayout.LayoutParams(0,dp(48),1));} content.addView(flow);
     }
 
-    private void showRecords(){ title.setText("پرونده‌ها"); content.removeAllViews(); content.addView(sectionTitle("مدیریت پرونده‌ها","درخواست، تأمین‌کننده و فرصت پروژه"));
+    private void showRecords(){ title.setText("پرونده‌ها"); content.removeAllViews(); content.addView(sectionTitle("مدیریت پرونده‌ها",API_BASE_URL.isEmpty()?"داده آزمایشی داخلی":"داده زنده از API"));
         for(Record r:api.records()) content.addView(recordCard(r));
     }
     private void showNetwork(){ title.setText("شبکه تأمین"); content.removeAllViews(); content.addView(sectionTitle("شبکه همکاران","تأمین‌کنندگان و ظرفیت عملیاتی"));
         content.addView(infoCard("۲۸","تأمین‌کننده و شریک ثبت‌شده","ظرفیت نمونه شبکه")); content.addView(infoCard("۱۲","پرونده فعال","در انتظار اقدام یا ارجاع")); content.addView(infoCard("۸","حوزه تخصصی","پوشش خدمات و تأمین"));
     }
-    private void showReports(){ title.setText("گزارش‌ها"); content.removeAllViews(); content.addView(sectionTitle("گزارش مدیریتی","خلاصه عملکرد سامانه"));
+    private void showReports(){ title.setText("گزارش‌ها"); content.removeAllViews(); content.addView(sectionTitle("گزارش مدیریتی",API_BASE_URL.isEmpty()?"خلاصه داده آزمایشی":"خلاصه داده API"));
         String[] a={"درخواست‌ها","تأمین‌کنندگان","پروژه‌ها"}; int[] n={api.kind("request"),api.kind("supplier"),api.kind("project")};
         for(int i=0;i<a.length;i++){LinearLayout row=new LinearLayout(this);row.setGravity(Gravity.CENTER_VERTICAL);row.setPadding(dp(12),dp(12),dp(12),dp(12));row.setBackground(round(Color.WHITE,12)); TextView t=label(a[i],10,ink);row.addView(t,new LinearLayout.LayoutParams(dp(105),-2)); ProgressBar p=new ProgressBar(this,null,android.R.attr.progressBarStyleHorizontal);p.setMax(10);p.setProgress(Math.min(10,n[i]));row.addView(p,new LinearLayout.LayoutParams(0,dp(7),1)); TextView num=label(fa(n[i]),11,accent);num.setPadding(dp(10),0,0,0);row.addView(num);content.addView(row);content.addView(gap(8));}
     }
